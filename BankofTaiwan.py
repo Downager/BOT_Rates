@@ -11,6 +11,3 @@ def rates():
     BotRates = BotRates.set_index(['Currency'])
     RatesDict = BotRates.to_dict()
     return RatesDict
-
-
-print(rates())
