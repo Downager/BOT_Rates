@@ -10,4 +10,10 @@ def rates():
     BotRates['Currency'] = BotRates['Currency'].str.extract('\((\w+)\)')
     BotRates = BotRates.set_index(['Currency'])
     RatesDict = BotRates.to_dict()
+    # 移除價位為 - 之報價
+    for key, vdict in RatesDict.items():
+        for k, v in list(vdict.items()):
+            if v == '-':
+                print('{}: {}'.format(k, v))
+                del vdict[k]
     return RatesDict
