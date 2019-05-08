@@ -14,6 +14,5 @@ def rates():
     for key, vdict in RatesDict.items():
         for k, v in list(vdict.items()):
             if v == '-':
-                print('{}: {}'.format(k, v))
                 del vdict[k]
     return RatesDict
