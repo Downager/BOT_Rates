@@ -1,14 +1,14 @@
 # coding=UTF8
-from flask_api import FlaskAPI
+from flask import Flask, jsonify
 import BankofTaiwan
 
-app = FlaskAPI(__name__)
+app = Flask(__name__)
 
 
 @app.route("/", methods=['GET'])
 def get_rate():
-    return BankofTaiwan.rates()
+    return jsonify(BankofTaiwan.rates())
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
